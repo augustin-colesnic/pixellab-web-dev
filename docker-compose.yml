@@ -1,0 +1,14 @@
+version: "3.9"  # Or a later version if needed
+
+services:
+  web:
+    build: .       # Build the image from the Dockerfile in the same directory
+    ports:
+      - "8080:8080" # Map port 8080 on the host to 8080 in the container
+    volumes:
+      - student_data:/app # Mount a named volume to /app inside the container
+    container_name: web-dev-course_web # Give the container a predictable name
+    restart: unless-stopped # Restart the container unless explicitly stopped
+
+volumes:
+  student_data:   # Define the named volume
